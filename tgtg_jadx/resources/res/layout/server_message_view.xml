@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:tag="layout/server_message_view_0"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:id="@+id/webViewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="58dp">
+        <WebView
+            android:id="@+id/webView"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <com.app.tgtg.customview.TGTGLoadingView
+            android:layout_gravity="center"
+            android:id="@+id/progressBar"
+            android:visibility="visible"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:elevation="1dp"/>
+    </FrameLayout>
+    <Button
+        android:id="@+id/okBtn"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="@dimen/spacing_2"
+        android:layout_marginRight="@dimen/spacing_2"
+        android:text="@android:string/ok"
+        app:layout_constraintTop_toBottomOf="@+id/webViewContainer"
+        style="@style/button_primary_main_bg"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

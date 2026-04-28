@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentEnd="true">
+    <ImageView
+        android:id="@+id/imBadgeIcon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/tvBadgeLabel"
+        android:background="@drawable/store_badge_label_bg"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/imBadgeIcon"
+        app:layout_constraintStart_toStartOf="@+id/imBadgeIcon"
+        app:layout_constraintTop_toBottomOf="@+id/imBadgeIcon"
+        style="@style/Heading6_Black"/>
+    <TextView
+        android:gravity="center"
+        android:id="@+id/tvCategoryTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBadgeLabel"
+        style="@style/Heading6_Black"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

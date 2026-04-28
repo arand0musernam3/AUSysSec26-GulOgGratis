@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/helpcenter_navigation"
+    app:startDestination="@+id/topicFragment">
+    <fragment
+        android:label="TopicFragment"
+        android:name="com.app.tgtg.feature.helpdesk.ui.topic.TopicFragment"
+        android:id="@+id/topicFragment">
+        <action
+            android:id="@+id/action_topicFragment_to_questionFragment"
+            app:destination="@+id/questionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:label="QuestionFragment"
+        android:name="com.app.tgtg.feature.helpdesk.ui.question.QuestionFragment"
+        android:id="@+id/questionFragment">
+        <action
+            android:id="@+id/action_questionFragment_to_answerFragment"
+            app:destination="@+id/answerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:label="AnswerFragment"
+        android:name="com.app.tgtg.feature.helpdesk.ui.answer.AnswerFragment"
+        android:id="@+id/answerFragment"/>
+</navigation>

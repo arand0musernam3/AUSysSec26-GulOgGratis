@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/zuia_banner_layer">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/zma_color_shadow"/>
+            <corners android:radius="@dimen/zuia_postback_error_banner_radius"/>
+            <padding
+                android:left="@dimen/zuia_postback_error_banner_padding"
+                android:top="0dp"
+                android:right="@dimen/zuia_postback_error_banner_padding"
+                android:bottom="@dimen/zuia_postback_error_banner_padding"/>
+        </shape>
+    </item>
+    <item android:id="@+id/zuia_banner_background">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/zuia_color_white"/>
+            <corners android:radius="@dimen/zuia_postback_error_banner_radius"/>
+        </shape>
+    </item>
+</layer-list>

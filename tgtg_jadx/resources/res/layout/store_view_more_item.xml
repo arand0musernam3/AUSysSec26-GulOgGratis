@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rlBackground"
+    android:background="@color/neutral_10"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="12dp"
+    android:animateLayoutChanges="true">
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:includeFontPadding="false"
+        android:layout_marginStart="16dp"
+        style="@style/Heading5_Black"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:orientation="horizontal"
+        android:id="@+id/rvStoreList"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:nestedScrollingEnabled="false"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+    <com.app.tgtg.customview.TGTGLoadingView
+        android:id="@+id/loaderView"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>

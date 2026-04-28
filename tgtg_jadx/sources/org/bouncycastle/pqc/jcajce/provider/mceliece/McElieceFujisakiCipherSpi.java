@@ -1,0 +1,100 @@
+package org.bouncycastle.pqc.jcajce.provider.mceliece;
+
+import com.braze.h2;
+import java.io.ByteArrayOutputStream;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.Key;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.SecureRandom;
+import java.security.spec.AlgorithmParameterSpec;
+import javax.crypto.BadPaddingException;
+import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
+import org.bouncycastle.asn1.x509.X509ObjectIdentifiers;
+import org.bouncycastle.crypto.Digest;
+import org.bouncycastle.crypto.InvalidCipherTextException;
+import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
+import org.bouncycastle.crypto.params.ParametersWithRandom;
+import org.bouncycastle.crypto.util.DigestFactory;
+import org.bouncycastle.pqc.jcajce.provider.util.AsymmetricHybridCipher;
+import org.bouncycastle.pqc.legacy.crypto.mceliece.McElieceCCA2KeyParameters;
+import org.bouncycastle.pqc.legacy.crypto.mceliece.McElieceFujisakiCipher;
+
+/* JADX INFO: loaded from: classes3.dex */
+public class McElieceFujisakiCipherSpi extends AsymmetricHybridCipher implements PKCSObjectIdentifiers, X509ObjectIdentifiers {
+    private ByteArrayOutputStream buf = new ByteArrayOutputStream();
+    private McElieceFujisakiCipher cipher;
+    private Digest digest;
+
+    public static class McElieceFujisaki extends McElieceFujisakiCipherSpi {
+        public McElieceFujisaki() {
+            super(DigestFactory.createSHA1(), new McElieceFujisakiCipher());
+        }
+    }
+
+    public McElieceFujisakiCipherSpi(Digest digest, McElieceFujisakiCipher mcElieceFujisakiCipher) {
+        this.digest = digest;
+        this.cipher = mcElieceFujisakiCipher;
+    }
+
+    @Override // org.bouncycastle.pqc.jcajce.provider.util.AsymmetricHybridCipher
+    public int decryptOutputSize(int i11) {
+        return 0;
+    }
+
+    @Override // org.bouncycastle.pqc.jcajce.provider.util.AsymmetricHybridCipher, org.bouncycastle.pqc.jcajce.provider.util.CipherSpiExt
+    public byte[] doFinal(byte[] bArr, int i11, int i12) throws BadPaddingException {
+        update(bArr, i11, i12);
+        byte[] byteArray = this.buf.toByteArray();
+        this.buf.reset();
+        int i13 = this.opMode;
+        if (i13 == 1) {
+            return this.cipher.messageEncrypt(byteArray);
+        }
+        if (i13 != 2) {
+            h2.b("unknown mode in doFinal");
+            return null;
+        }
+        try {
+            return this.cipher.messageDecrypt(byteArray);
+        } catch (InvalidCipherTextException e5) {
+            throw new BadPaddingException(e5.getMessage());
+        }
+    }
+
+    @Override // org.bouncycastle.pqc.jcajce.provider.util.AsymmetricHybridCipher
+    public int encryptOutputSize(int i11) {
+        return 0;
+    }
+
+    @Override // org.bouncycastle.pqc.jcajce.provider.util.CipherSpiExt
+    public int getKeySize(Key key) throws InvalidKeyException {
+        return this.cipher.getKeySize((McElieceCCA2KeyParameters) (key instanceof PublicKey ? McElieceCCA2KeysToParams.generatePublicKeyParameter((PublicKey) key) : McElieceCCA2KeysToParams.generatePrivateKeyParameter((PrivateKey) key)));
+    }
+
+    @Override // org.bouncycastle.pqc.jcajce.provider.util.CipherSpiExt
+    public String getName() {
+        return "McElieceFujisakiCipher";
+    }
+
+    @Override // org.bouncycastle.pqc.jcajce.provider.util.AsymmetricHybridCipher
+    public void initCipherDecrypt(Key key, AlgorithmParameterSpec algorithmParameterSpec) throws InvalidKeyException, InvalidAlgorithmParameterException {
+        AsymmetricKeyParameter asymmetricKeyParameterGeneratePrivateKeyParameter = McElieceCCA2KeysToParams.generatePrivateKeyParameter((PrivateKey) key);
+        this.digest.reset();
+        this.cipher.init(false, asymmetricKeyParameterGeneratePrivateKeyParameter);
+    }
+
+    @Override // org.bouncycastle.pqc.jcajce.provider.util.AsymmetricHybridCipher
+    public void initCipherEncrypt(Key key, AlgorithmParameterSpec algorithmParameterSpec, SecureRandom secureRandom) throws InvalidKeyException, InvalidAlgorithmParameterException {
+        ParametersWithRandom parametersWithRandom = new ParametersWithRandom(McElieceCCA2KeysToParams.generatePublicKeyParameter((PublicKey) key), secureRandom);
+        this.digest.reset();
+        this.cipher.init(true, parametersWithRandom);
+    }
+
+    @Override // org.bouncycastle.pqc.jcajce.provider.util.AsymmetricHybridCipher, org.bouncycastle.pqc.jcajce.provider.util.CipherSpiExt
+    public byte[] update(byte[] bArr, int i11, int i12) {
+        this.buf.write(bArr, i11, i12);
+        return new byte[0];
+    }
+}

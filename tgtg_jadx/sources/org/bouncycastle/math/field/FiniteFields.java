@@ -1,0 +1,44 @@
+package org.bouncycastle.math.field;
+
+import i4.a;
+import java.math.BigInteger;
+import org.bouncycastle.util.BigIntegers;
+
+/* JADX INFO: loaded from: classes3.dex */
+public abstract class FiniteFields {
+    static final FiniteField GF_2 = new PrimeField(BigInteger.valueOf(2));
+    static final FiniteField GF_3 = new PrimeField(BigInteger.valueOf(3));
+
+    public static PolynomialExtensionField getBinaryExtensionField(int[] iArr) {
+        String str;
+        if (iArr[0] == 0) {
+            for (int i11 = 1; i11 < iArr.length; i11++) {
+                if (iArr[i11] <= iArr[i11 - 1]) {
+                    str = "Polynomial exponents must be monotonically increasing";
+                }
+            }
+            return new GenericPolynomialExtensionField(GF_2, new GF2Polynomial(iArr));
+        }
+        str = "Irreducible polynomials in GF(2) must have constant term";
+        a.f(str);
+        return null;
+    }
+
+    public static FiniteField getPrimeField(BigInteger bigInteger) {
+        int iBitLength = bigInteger.bitLength();
+        if (bigInteger.signum() <= 0 || iBitLength < 2) {
+            a.f("'characteristic' must be >= 2");
+            return null;
+        }
+        if (iBitLength < 3) {
+            int iIntValueExact = BigIntegers.intValueExact(bigInteger);
+            if (iIntValueExact == 2) {
+                return GF_2;
+            }
+            if (iIntValueExact == 3) {
+                return GF_3;
+            }
+        }
+        return new PrimeField(bigInteger);
+    }
+}

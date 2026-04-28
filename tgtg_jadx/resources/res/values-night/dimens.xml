@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="com_braze_content_card_background_border_bottom">0dp</dimen>
+    <dimen name="com_braze_content_card_background_border_left">0dp</dimen>
+    <dimen name="com_braze_content_card_background_border_right">0dp</dimen>
+    <dimen name="com_braze_content_card_background_border_top">0dp</dimen>
+    <dimen name="com_braze_content_card_background_shadow_bottom">0dp</dimen>
+    <dimen name="zuia_article_attachment_border_alpha">0.35</dimen>
+    <dimen name="zuia_carousel_border_alpha">0.35</dimen>
+    <dimen name="zuia_form_border_alpha">0.35</dimen>
+    <dimen name="zuia_form_response_border_alpha">0.35</dimen>
+    <dimen name="zuia_wait_time_banner_border_alpha">0.35</dimen>
+</resources>

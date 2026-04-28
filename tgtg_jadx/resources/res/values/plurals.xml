@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="badges_banner_body_earned">
+        <item quantity="one">%1$sCongrats!%2$s You’ve earned a new badge.</item>
+        <item quantity="other">%1$sCongrats!%2$s You’ve earned %3$d new badges.</item>
+    </plurals>
+    <plurals name="bannerQueue">
+        <item quantity="zero">@string/zuia_static_wait_time_banner_queue_position.zero</item>
+        <item quantity="one">@string/zuia_static_wait_time_banner_queue_position.one</item>
+        <item quantity="two">@string/zuia_static_wait_time_banner_queue_position.two</item>
+        <item quantity="few">@string/zuia_static_wait_time_banner_queue_position.few</item>
+        <item quantity="many">@string/zuia_static_wait_time_banner_queue_position.many</item>
+        <item quantity="other">@string/zuia_static_wait_time_banner_queue_position.other</item>
+    </plurals>
+    <plurals name="banner_popup_alt_title">
+        <item quantity="one">Your order is here</item>
+        <item quantity="other">Your orders are here</item>
+    </plurals>
+    <plurals name="blob_info_row_unread_messages">
+        <item quantity="one">You have 1 unread message</item>
+        <item quantity="other">You have %1$d unread messages</item>
+    </plurals>
+    <plurals name="blob_tooltip_minor_explanation">
+        <item quantity="one">Tap to open and swipe it in the store to collect your Surprise Bag.</item>
+        <item quantity="other">Tap to open and swipe them in the store to collect your Surprise Bags.</item>
+    </plurals>
+    <plurals name="c2c_v3_Profile_card_active_body_days">
+        <item quantity="one">Only %1$s%2$d day%3$s left to invite your friends and earn vouchers!</item>
+        <item quantity="other">Only %1$s%2$d days%3$s left to invite your friends and earn vouchers!</item>
+    </plurals>
+    <plurals name="c2c_v3_Profile_card_active_body_hours">
+        <item quantity="one">Only %1$s%2$d hour%3$s left to invite your friends and earn vouchers!</item>
+        <item quantity="other">Only %1$s%2$d hours%3$s left to invite your friends and earn vouchers!</item>
+    </plurals>
+    <plurals name="c2c_v3_invite_friends_header">
+        <item quantity="one">%1$d day to earn as many vouchers as you can!</item>
+        <item quantity="other">%1$d days to earn as many vouchers as you can!</item>
+    </plurals>
+    <plurals name="c2c_v3_profile_panel_active_header_days">
+        <item quantity="one">%1$d day to earn as many vouchers as you can!</item>
+        <item quantity="other">%1$d days to earn as many vouchers as you can!</item>
+    </plurals>
+    <plurals name="c2c_v3_profile_panel_active_header_hours">
+        <item quantity="one">%1$d hour to earn as many vouchers as you can!</item>
+        <item quantity="other">%1$d hours to earn as many vouchers as you can!</item>
+    </plurals>
+    <plurals name="c2c_v3_profile_panel_end_state_earned_body">
+        <item quantity="one">Thanks to you, one of your friends is rescuing food from going to waste and helping the planet! You can still spread the word. Tap ⚙️ in the top-right corner, then tap &apos;Invite your friends&apos;.</item>
+        <item quantity="other">Thanks to you, %1$d friends are rescuing food from going to waste and helping the planet! You can still spread the word. Tap ⚙️ in the top-right corner, then tap &apos;Invite your friends&apos;.</item>
+    </plurals>
+    <plurals name="carouselArticles">
+        <item quantity="zero">@string/zuia_accessibility_carousel_message_received_announcement.zero</item>
+        <item quantity="one">@string/zuia_accessibility_carousel_message_received_announcement.one</item>
+        <item quantity="two">@string/zuia_accessibility_carousel_message_received_announcement.two</item>
+        <item quantity="few">@string/zuia_accessibility_carousel_message_received_announcement.few</item>
+        <item quantity="many">@string/zuia_accessibility_carousel_message_received_announcement.many</item>
+        <item quantity="other">@string/zuia_accessibility_carousel_message_received_announcement.other</item>
+    </plurals>
+    <plurals name="catering_items_available">
+        <item quantity="one">%1$d package available</item>
+        <item quantity="other">%1$d packages available</item>
+    </plurals>
+    <plurals name="charity_donation_from">
+        <item quantity="one">%d x donation from</item>
+        <item quantity="other">%d x donations from</item>
+    </plurals>
+    <plurals name="charity_home_bottomsheet_welcome_body">
+        <item quantity="one">Your organisation is partnered with the store below. You&apos;ll receive donation offers from this store through the app. Enjoy!</item>
+        <item quantity="other">Your organisation is partnered with the stores below. You&apos;ll receive donation offers from these stores through the app. Enjoy!</item>
+    </plurals>
+    <plurals name="charity_inventory_update_title">
+        <item quantity="one">%1$s inventory update</item>
+        <item quantity="other">%1$s inventory updates</item>
+    </plurals>
+    <plurals name="charity_item_donation_inventory_items">
+        <item quantity="one">%d item</item>
+        <item quantity="other">%d items</item>
+    </plurals>
+    <plurals name="charity_order_inventory_changed_card">
+        <item quantity="one">There is %1$s update to the inventory.</item>
+        <item quantity="other">There are %1$s updates to the inventory.</item>
+    </plurals>
+    <plurals name="charity_orderview_information_item_info_label">
+        <item quantity="one">donation</item>
+        <item quantity="other">donations</item>
+    </plurals>
+    <plurals name="item_view_amount_of_reviews">
+        <item quantity="one">Based on %1$s recent review</item>
+        <item quantity="other">Based on %1$s recent reviews</item>
+    </plurals>
+    <plurals name="item_view_ingredients_explainer_review">
+        <item quantity="one">%1$d \nREVIEW</item>
+        <item quantity="other">%1$d \nREVIEWS</item>
+    </plurals>
+    <plurals name="map_sheet_bag_count">
+        <item quantity="one">%1$s Surprise Bag</item>
+        <item quantity="other">%1$s Surprise Bags</item>
+    </plurals>
+    <plurals name="mnu_basket_screen_only_x_available">
+        <item quantity="one">Only %d available</item>
+        <item quantity="other">Only %d available</item>
+    </plurals>
+    <plurals name="mnu_item_count">
+        <item quantity="one">%1s item</item>
+        <item quantity="other">%1s items</item>
+    </plurals>
+    <plurals name="mnu_main_tooltip_parcels_arrived">
+        <item quantity="one">New Parcel has arrived</item>
+        <item quantity="other">New Parcels have arrived</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="one">%d new notification</item>
+        <item quantity="other">%d new notifications</item>
+    </plurals>
+    <plurals name="profile_loyalty_card_close_expire_in_hours_body">
+        <item quantity="one">Only one hour left to collect %2$d stamps and unlock a voucher.</item>
+        <item quantity="other">Only %1$d hours left to collect %2$d stamps and unlock a voucher.</item>
+    </plurals>
+    <plurals name="profile_loyalty_card_close_to_expire_in_days_body">
+        <item quantity="one">Only one day left to collect %2$d stamps and unlock a voucher.</item>
+        <item quantity="other">Only %1$d days left to collect %2$d stamps and unlock a voucher.</item>
+    </plurals>
+    <plurals name="profile_loyalty_card_multiple_stamps_earned_body">
+        <item quantity="one">You&apos;re only one stamp away from unlocking a voucher!</item>
+        <item quantity="other">You&apos;re only %1$d stamps away from unlocking a voucher!</item>
+    </plurals>
+    <plurals name="profile_loyalty_card_stamps_earned_title">
+        <item quantity="one">Another stamp collected</item>
+        <item quantity="other">Keep up the good work!</item>
+    </plurals>
+    <plurals name="profile_new_loyalty_card_expired_body">
+        <item quantity="one">This offer has ended, but your impact continues. You collected %1$d stamp during this promotion. Great effort!</item>
+        <item quantity="other">This offer has ended, but your impact continues. You collected %1$d stamps during this promotion. Great effort!</item>
+    </plurals>
+    <plurals name="screen_reader_item_view_rating_overall">
+        <item quantity="one">Overall experience: Rating %1$s out of maximum 5 stars, based on %2$d recent review</item>
+        <item quantity="other">Overall experience: Rating %1$s out of maximum 5 stars, based on %2$d recent reviews</item>
+    </plurals>
+    <plurals name="store_view_badge_months_on_platform_months">
+        <item quantity="one">%d month</item>
+        <item quantity="other">%d months</item>
+    </plurals>
+    <plurals name="store_view_badge_months_on_platform_years">
+        <item quantity="one">%d year</item>
+        <item quantity="other">%d years</item>
+    </plurals>
+    <plurals name="unreadMessages">
+        <item quantity="zero">@string/zuia_accessibility_unread_messages.zero</item>
+        <item quantity="one">@string/zuia_accessibility_unread_messages.one</item>
+        <item quantity="two">@string/zuia_accessibility_unread_messages.two</item>
+        <item quantity="few">@string/zuia_accessibility_unread_messages.few</item>
+        <item quantity="many">@string/zuia_accessibility_unread_messages.many</item>
+        <item quantity="other">@string/zuia_accessibility_unread_messages.other</item>
+    </plurals>
+    <plurals name="voice_over_minute">
+        <item quantity="one">%1$d minute</item>
+        <item quantity="other">%1$d minutes</item>
+    </plurals>
+    <plurals name="voice_over_voucher_details_history_usage_subtracted_country">
+        <item quantity="one">Minus %1$d Surprise Bag</item>
+        <item quantity="other">Minus %1$d Surprise Bags</item>
+    </plurals>
+    <plurals name="voucher_details_history_usage_added_country">
+        <item quantity="one">Plus %1$d Surprise Bag</item>
+        <item quantity="other">Plus %1$d Surprise Bags</item>
+    </plurals>
+    <plurals name="voucher_expire_in_days_label">
+        <item quantity="one">Expires in %1$d day</item>
+        <item quantity="other">Expires in %1$d days</item>
+    </plurals>
+</resources>

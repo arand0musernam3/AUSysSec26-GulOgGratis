@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ProgressBar
+        android:layout_gravity="center"
+        android:id="@+id/zuia_message_load_more_progress_indicator"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="@dimen/zuia_horizontal_spacing_small"
+        android:layout_marginBottom="@dimen/zuia_horizontal_spacing_small"
+        android:indeterminate="true"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_gravity="center"
+        android:id="@+id/zuia_message_load_retry_container_view"
+        android:background="?attr/selectableItemBackground"
+        android:paddingTop="@dimen/zuia_horizontal_spacing_small"
+        android:paddingBottom="@dimen/zuia_horizontal_spacing_small"
+        android:focusable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:textColor="@color/zuia_color_black"
+            android:gravity="center"
+            android:id="@+id/zuia_message_load_retry_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/zuia_message_load_retry_button"
+            android:background="@color/zuia_color_transparent"
+            android:padding="@dimen/zuia_horizontal_spacing_xsmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/zuia_retry_image"
+            android:contentDescription="@string/zuia_load_more_view_retry_button_accessibility_label"
+            android:layout_marginStart="@dimen/zuia_horizontal_spacing_xsmall"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/zuia_message_load_retry_label"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/zuia_color_black"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

@@ -1,0 +1,63 @@
+package tx;
+
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import android.os.Build;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.HashSet;
+import kotlin.collections.CollectionsKt;
+import kotlin.collections.h1;
+import org.bouncycastle.pqc.jcajce.spec.McElieceCCA2KeyGenParameterSpec;
+
+/* JADX INFO: compiled from: r8-map-id-bad8e3e1b75e2d3fd72c92f1b960553adb24fef824cc9e98cee450b85845d4c2 */
+/* JADX INFO: loaded from: classes2.dex */
+public abstract class o {
+
+    /* JADX INFO: renamed from: a, reason: collision with root package name */
+    public static final HashSet f40544a = h1.c("8a3c4b262d721acd49a4bf97d5213199c86fa2b9", "cc2751449a350f668590264ed76692694a80308a", "a4b7452e2ed8f5f191058ca7bbfd26b0d3214bfc", "df6b721c8b4d3b6eb44c861d4415007e5a35fc95", "9b8f518b086098de3d77736f9458a3d2f6f95a37", "2438bce1ddb7bd026d5ff89f598b3b5e5bb824b3", "c56fb7d591ba6704df047fd98f535372fea00211");
+
+    public static final boolean a(Context context, String str) {
+        String string;
+        context.getClass();
+        str.getClass();
+        String str2 = Build.BRAND;
+        int i11 = context.getApplicationInfo().flags;
+        str2.getClass();
+        if (kotlin.text.y.p(str2, "generic", false) && (i11 & 2) != 0) {
+            return true;
+        }
+        try {
+            Signature[] signatureArr = context.getPackageManager().getPackageInfo(str, 64).signatures;
+            if (signatureArr != null && signatureArr.length != 0) {
+                signatureArr.getClass();
+                for (Signature signature : signatureArr) {
+                    HashSet hashSet = f40544a;
+                    byte[] byteArray = signature.toByteArray();
+                    byteArray.getClass();
+                    try {
+                        MessageDigest messageDigest = MessageDigest.getInstance(McElieceCCA2KeyGenParameterSpec.SHA1);
+                        messageDigest.getClass();
+                        messageDigest.update(byteArray);
+                        byte[] bArrDigest = messageDigest.digest();
+                        StringBuilder sb2 = new StringBuilder();
+                        bArrDigest.getClass();
+                        for (byte b8 : bArrDigest) {
+                            sb2.append(Integer.toHexString((b8 >> 4) & 15));
+                            sb2.append(Integer.toHexString(b8 & 15));
+                        }
+                        string = sb2.toString();
+                    } catch (NoSuchAlgorithmException unused) {
+                        string = null;
+                    }
+                    if (CollectionsKt.I(hashSet, string)) {
+                    }
+                }
+                return true;
+            }
+        } catch (PackageManager.NameNotFoundException unused2) {
+        }
+        return false;
+    }
+}

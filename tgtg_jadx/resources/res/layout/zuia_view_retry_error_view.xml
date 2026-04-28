@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:id="@+id/zuia_error_view"
+    android:focusable="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:gravity="center"
+        android:id="@+id/zuia_error_retry_message_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/zuia_horizontal_spacing_medium"
+        android:layout_marginEnd="@dimen/zuia_horizontal_spacing_medium"
+        style="?attr/conversationsListRetryErrorTitleStyle"/>
+    <TextView
+        android:id="@+id/zuia_error_retry_button"
+        android:background="?attr/selectableItemBackground"
+        android:focusable="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/zuia_retry_error_view_icon_padding_size"
+        app:drawableEndCompat="@drawable/zuia_reload_icon"
+        app:iconGravity="end"
+        style="?attr/conversationsListRetryErrorSubtitleStyle"/>
+</LinearLayout>

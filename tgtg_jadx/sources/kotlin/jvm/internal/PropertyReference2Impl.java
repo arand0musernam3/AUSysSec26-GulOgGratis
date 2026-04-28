@@ -1,0 +1,21 @@
+package kotlin.jvm.internal;
+
+import kotlin.reflect.KClass;
+import kotlin.reflect.KDeclarationContainer;
+
+/* JADX INFO: compiled from: r8-map-id-bad8e3e1b75e2d3fd72c92f1b960553adb24fef824cc9e98cee450b85845d4c2 */
+/* JADX INFO: loaded from: classes3.dex */
+public class PropertyReference2Impl extends PropertyReference2 {
+    public PropertyReference2Impl(KDeclarationContainer kDeclarationContainer, String str, String str2) {
+        super(((ClassBasedDeclarationContainer) kDeclarationContainer).getJClass(), str, str2, !(kDeclarationContainer instanceof KClass) ? 1 : 0);
+    }
+
+    @Override // kotlin.reflect.KProperty2
+    public Object get(Object obj, Object obj2) {
+        return getGetter().call(obj, obj2);
+    }
+
+    public PropertyReference2Impl(Class cls, String str, String str2, int i11) {
+        super(cls, str, str2, i11);
+    }
+}

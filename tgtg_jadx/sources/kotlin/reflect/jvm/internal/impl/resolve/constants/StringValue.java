@@ -1,0 +1,31 @@
+package kotlin.reflect.jvm.internal.impl.resolve.constants;
+
+import kotlin.reflect.jvm.internal.impl.descriptors.ModuleDescriptor;
+import kotlin.reflect.jvm.internal.impl.types.SimpleType;
+import org.jetbrains.annotations.NotNull;
+import w2.l1;
+
+/* JADX INFO: compiled from: r8-map-id-bad8e3e1b75e2d3fd72c92f1b960553adb24fef824cc9e98cee450b85845d4c2 */
+/* JADX INFO: loaded from: classes3.dex */
+public final class StringValue extends ConstantValue<String> {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public StringValue(@NotNull String str) {
+        super(str);
+        str.getClass();
+    }
+
+    @Override // kotlin.reflect.jvm.internal.impl.resolve.constants.ConstantValue
+    @NotNull
+    public SimpleType getType(@NotNull ModuleDescriptor moduleDescriptor) {
+        moduleDescriptor.getClass();
+        SimpleType stringType = moduleDescriptor.getBuiltIns().getStringType();
+        stringType.getClass();
+        return stringType;
+    }
+
+    @Override // kotlin.reflect.jvm.internal.impl.resolve.constants.ConstantValue
+    @NotNull
+    public String toString() {
+        return l1.f(new StringBuilder("\""), getValue(), '\"');
+    }
+}

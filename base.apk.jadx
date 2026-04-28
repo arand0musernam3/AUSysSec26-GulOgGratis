@@ -1,0 +1,66 @@
+{
+  "projectVersion": 2,
+  "files": [
+    "tgtg_untouched/base.apk"
+  ],
+  "treeExpansionsV2": [
+    "t:JSources"
+  ],
+  "codeData": {
+    "comments": [],
+    "renames": []
+  },
+  "openTabs": [
+    {
+      "type": "class",
+      "tabPath": "a10.a",
+      "subPath": "java",
+      "caret": 592,
+      "view": {
+        "x": 0,
+        "y": 0
+      },
+      "active": false,
+      "pinned": false,
+      "bookmarked": false,
+      "hidden": false,
+      "previewTab": false
+    },
+    {
+      "type": "class",
+      "tabPath": "com.app.tgtg.MainApplication",
+      "subPath": "java",
+      "caret": 1343,
+      "view": {
+        "x": 0,
+        "y": 127
+      },
+      "active": false,
+      "pinned": false,
+      "bookmarked": false,
+      "hidden": false,
+      "previewTab": false
+    },
+    {
+      "type": "class",
+      "tabPath": "com.app.tgtg.services.notifications.NotificationPublisher",
+      "subPath": "java",
+      "caret": 960,
+      "view": {
+        "x": 0,
+        "y": 0
+      },
+      "active": true,
+      "pinned": false,
+      "bookmarked": false,
+      "hidden": false,
+      "previewTab": false
+    }
+  ],
+  "cacheDir": "/home/user/.cache/jadx/projects/base-2bfe0fb5ed6f863fd58bdb2368f2ef2c",
+  "enableLiveReload": false,
+  "searchHistory": [],
+  "searchResourcesFilter": "$TEXT",
+  "searchResourcesSizeLimit": 0,
+  "pluginOptions": {}
+}

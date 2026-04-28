@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.fragment.app.FragmentContainerView
+        android:name="com.adyen.checkout.googlepay.internal.ui.GooglePayFragment"
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <com.adyen.checkout.ui.core.internal.ui.view.ProcessingPaymentView
+        android:id="@+id/processingPaymentView"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</merge>

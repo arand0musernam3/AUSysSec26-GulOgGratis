@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <size/>
+    <corners android:radius="@dimen/zuia_conversation_cell_radius"/>
+    <solid android:color="@color/colorNotify"/>
+</shape>

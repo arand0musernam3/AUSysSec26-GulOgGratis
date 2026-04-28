@@ -1,0 +1,59 @@
+package org.bouncycastle.math.ec;
+
+import i4.a;
+import java.math.BigInteger;
+import org.bouncycastle.math.ec.ECCurve;
+import org.bouncycastle.math.ec.ECPoint;
+
+/* JADX INFO: loaded from: classes3.dex */
+public class WTauNafMultiplier extends AbstractECMultiplier {
+    static final String PRECOMP_NAME = "bc_wtnaf";
+
+    private static ECPoint.AbstractF2m multiplyFromWTnaf(final ECPoint.AbstractF2m abstractF2m, byte[] bArr) {
+        ECCurve.AbstractF2m abstractF2m2 = (ECCurve.AbstractF2m) abstractF2m.getCurve();
+        final byte bByteValue = abstractF2m2.getA().toBigInteger().byteValue();
+        ECPoint.AbstractF2m[] preComp = ((WTauNafPreCompInfo) abstractF2m2.precompute(abstractF2m, PRECOMP_NAME, new PreCompCallback() { // from class: org.bouncycastle.math.ec.WTauNafMultiplier.1
+            @Override // org.bouncycastle.math.ec.PreCompCallback
+            public PreCompInfo precompute(PreCompInfo preCompInfo) {
+                if (preCompInfo instanceof WTauNafPreCompInfo) {
+                    return preCompInfo;
+                }
+                WTauNafPreCompInfo wTauNafPreCompInfo = new WTauNafPreCompInfo();
+                wTauNafPreCompInfo.setPreComp(Tnaf.getPreComp(abstractF2m, bByteValue));
+                return wTauNafPreCompInfo;
+            }
+        })).getPreComp();
+        ECPoint.AbstractF2m[] abstractF2mArr = new ECPoint.AbstractF2m[preComp.length];
+        for (int i11 = 0; i11 < preComp.length; i11++) {
+            abstractF2mArr[i11] = (ECPoint.AbstractF2m) preComp[i11].negate();
+        }
+        ECPoint.AbstractF2m abstractF2m3 = (ECPoint.AbstractF2m) abstractF2m.getCurve().getInfinity();
+        int i12 = 0;
+        for (int length = bArr.length - 1; length >= 0; length--) {
+            i12++;
+            byte b8 = bArr[length];
+            if (b8 != 0) {
+                abstractF2m3 = (ECPoint.AbstractF2m) abstractF2m3.tauPow(i12).add(b8 > 0 ? preComp[b8 >>> 1] : abstractF2mArr[(-b8) >>> 1]);
+                i12 = 0;
+            }
+        }
+        return i12 > 0 ? abstractF2m3.tauPow(i12) : abstractF2m3;
+    }
+
+    private ECPoint.AbstractF2m multiplyWTnaf(ECPoint.AbstractF2m abstractF2m, ZTauElement zTauElement, byte b8, byte b11) {
+        return multiplyFromWTnaf(abstractF2m, Tnaf.tauAdicWNaf(b11, zTauElement, 4, Tnaf.getTw(b11, 4).intValue(), b8 == 0 ? Tnaf.alpha0 : Tnaf.alpha1));
+    }
+
+    @Override // org.bouncycastle.math.ec.AbstractECMultiplier
+    public ECPoint multiplyPositive(ECPoint eCPoint, BigInteger bigInteger) {
+        if (!(eCPoint instanceof ECPoint.AbstractF2m)) {
+            a.f("Only ECPoint.AbstractF2m can be used in WTauNafMultiplier");
+            return null;
+        }
+        ECPoint.AbstractF2m abstractF2m = (ECPoint.AbstractF2m) eCPoint;
+        ECCurve.AbstractF2m abstractF2m2 = (ECCurve.AbstractF2m) abstractF2m.getCurve();
+        byte bByteValue = abstractF2m2.getA().toBigInteger().byteValue();
+        byte mu = Tnaf.getMu(bByteValue);
+        return multiplyWTnaf(abstractF2m, Tnaf.partModReduction(abstractF2m2, bigInteger, bByteValue, mu, (byte) 10), bByteValue, mu);
+    }
+}

@@ -1,0 +1,105 @@
+package kotlin.reflect.jvm.internal.impl.serialization.deserialization.descriptors;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import kotlin.collections.CollectionsKt;
+import kotlin.collections.c0;
+import kotlin.collections.e0;
+import kotlin.jvm.functions.Function0;
+import kotlin.jvm.internal.SourceDebugExtension;
+import kotlin.reflect.jvm.internal.impl.descriptors.DeclarationDescriptor;
+import kotlin.reflect.jvm.internal.impl.descriptors.SourceElement;
+import kotlin.reflect.jvm.internal.impl.descriptors.SupertypeLoopChecker;
+import kotlin.reflect.jvm.internal.impl.descriptors.annotations.AnnotationDescriptor;
+import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
+import kotlin.reflect.jvm.internal.impl.descriptors.impl.AbstractLazyTypeParameterDescriptor;
+import kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf;
+import kotlin.reflect.jvm.internal.impl.metadata.deserialization.ProtoTypeTableUtilKt;
+import kotlin.reflect.jvm.internal.impl.name.Name;
+import kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil.DescriptorUtilsKt;
+import kotlin.reflect.jvm.internal.impl.serialization.deserialization.DeserializationContext;
+import kotlin.reflect.jvm.internal.impl.serialization.deserialization.NameResolverUtilKt;
+import kotlin.reflect.jvm.internal.impl.serialization.deserialization.ProtoEnumFlags;
+import kotlin.reflect.jvm.internal.impl.serialization.deserialization.TypeDeserializer;
+import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
+import kotlin.reflect.jvm.internal.impl.types.KotlinType;
+import org.jetbrains.annotations.NotNull;
+
+/* JADX INFO: compiled from: r8-map-id-bad8e3e1b75e2d3fd72c92f1b960553adb24fef824cc9e98cee450b85845d4c2 */
+/* JADX INFO: loaded from: classes3.dex */
+@SourceDebugExtension({"SMAP\nDeserializedTypeParameterDescriptor.kt\nKotlin\n*S Kotlin\n*F\n+ 1 DeserializedTypeParameterDescriptor.kt\norg/jetbrains/kotlin/serialization/deserialization/descriptors/DeserializedTypeParameterDescriptor\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,58:1\n1549#2:59\n1620#2,3:60\n*S KotlinDebug\n*F\n+ 1 DeserializedTypeParameterDescriptor.kt\norg/jetbrains/kotlin/serialization/deserialization/descriptors/DeserializedTypeParameterDescriptor\n*L\n51#1:59\n51#1:60,3\n*E\n"})
+public final class DeserializedTypeParameterDescriptor extends AbstractLazyTypeParameterDescriptor {
+
+    @NotNull
+    private final DeserializedAnnotations annotations;
+
+    /* JADX INFO: renamed from: c, reason: collision with root package name */
+    @NotNull
+    private final DeserializationContext f26573c;
+
+    @NotNull
+    private final ProtoBuf.TypeParameter proto;
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    public DeserializedTypeParameterDescriptor(@NotNull DeserializationContext deserializationContext, @NotNull ProtoBuf.TypeParameter typeParameter, int i11) {
+        deserializationContext.getClass();
+        typeParameter.getClass();
+        StorageManager storageManager = deserializationContext.getStorageManager();
+        DeclarationDescriptor containingDeclaration = deserializationContext.getContainingDeclaration();
+        Annotations empty = Annotations.Companion.getEMPTY();
+        Name name = NameResolverUtilKt.getName(deserializationContext.getNameResolver(), typeParameter.getName());
+        ProtoEnumFlags protoEnumFlags = ProtoEnumFlags.INSTANCE;
+        ProtoBuf.TypeParameter.Variance variance = typeParameter.getVariance();
+        variance.getClass();
+        super(storageManager, containingDeclaration, empty, name, protoEnumFlags.variance(variance), typeParameter.getReified(), i11, SourceElement.NO_SOURCE, SupertypeLoopChecker.EMPTY.INSTANCE);
+        this.f26573c = deserializationContext;
+        this.proto = typeParameter;
+        this.annotations = new DeserializedAnnotations(deserializationContext.getStorageManager(), new Function0<List<? extends AnnotationDescriptor>>() { // from class: kotlin.reflect.jvm.internal.impl.serialization.deserialization.descriptors.DeserializedTypeParameterDescriptor$annotations$1
+            {
+                super(0);
+            }
+
+            @Override // kotlin.jvm.functions.Function0
+            @NotNull
+            public final List<AnnotationDescriptor> invoke() {
+                return CollectionsKt.r0(this.this$0.f26573c.getComponents().getAnnotationAndConstantLoader().loadTypeParameterAnnotations(this.this$0.getProto(), this.this$0.f26573c.getNameResolver()));
+            }
+        });
+    }
+
+    @NotNull
+    public final ProtoBuf.TypeParameter getProto() {
+        return this.proto;
+    }
+
+    @Override // kotlin.reflect.jvm.internal.impl.descriptors.impl.AbstractTypeParameterDescriptor
+    @NotNull
+    /* JADX INFO: renamed from: reportSupertypeLoopError, reason: merged with bridge method [inline-methods] */
+    public Void mo980reportSupertypeLoopError(@NotNull KotlinType kotlinType) {
+        kotlinType.getClass();
+        throw new IllegalStateException("There should be no cycles for deserialized type parameters, but found for: " + this);
+    }
+
+    @Override // kotlin.reflect.jvm.internal.impl.descriptors.impl.AbstractTypeParameterDescriptor
+    @NotNull
+    public List<KotlinType> resolveUpperBounds() {
+        List<ProtoBuf.Type> listUpperBounds = ProtoTypeTableUtilKt.upperBounds(this.proto, this.f26573c.getTypeTable());
+        if (listUpperBounds.isEmpty()) {
+            return c0.c(DescriptorUtilsKt.getBuiltIns(this).getDefaultBound());
+        }
+        TypeDeserializer typeDeserializer = this.f26573c.getTypeDeserializer();
+        ArrayList arrayList = new ArrayList(e0.o(listUpperBounds, 10));
+        Iterator<T> it = listUpperBounds.iterator();
+        while (it.hasNext()) {
+            arrayList.add(typeDeserializer.type((ProtoBuf.Type) it.next()));
+        }
+        return arrayList;
+    }
+
+    @Override // kotlin.reflect.jvm.internal.impl.descriptors.annotations.AnnotatedImpl, kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotated
+    @NotNull
+    public DeserializedAnnotations getAnnotations() {
+        return this.annotations;
+    }
+}

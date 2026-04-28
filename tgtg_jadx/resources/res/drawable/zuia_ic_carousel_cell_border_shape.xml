@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <stroke
+        android:width="@dimen/zuia_inner_stroke_width"
+        android:color="@color/zuia_color_transparent"/>
+    <corners
+        android:topLeftRadius="?attr/messageCellRadiusSize"
+        android:topRightRadius="?attr/messageCellRadiusSize"
+        android:bottomLeftRadius="?attr/messageCellRadiusSize"
+        android:bottomRightRadius="?attr/messageCellRadiusSize"/>
+</shape>

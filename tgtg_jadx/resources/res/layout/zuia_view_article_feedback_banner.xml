@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:id="@+id/zuia_feedback_banner_container"
+    android:padding="@dimen/zuia_vertical_spacing_xlarge"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/zuia_feedback_banner_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/zuia_guide_feedback_banner_question"
+        android:maxLines="10"
+        android:importantForAccessibility="yes"
+        android:textAlignment="viewStart"
+        android:layout_marginEnd="@dimen/zuia_vertical_spacing_xlarge"
+        android:screenReaderFocusable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/zuia_feedback_banner_bottom_guideline"
+        app:layout_constraintEnd_toStartOf="@+id/zuia_feedback_banner_guideline"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/TextAppearance.MaterialComponents.Subtitle2"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:orientation="vertical"
+        android:id="@+id/zuia_feedback_banner_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.45"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:orientation="horizontal"
+        android:id="@+id/zuia_feedback_banner_bottom_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.8"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/zuia_feedback_banner_options"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/zuia_feedback_banner_bottom_guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/zuia_feedback_banner_guideline"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

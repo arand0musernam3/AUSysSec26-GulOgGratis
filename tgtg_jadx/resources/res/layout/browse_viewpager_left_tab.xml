@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:background="@android:color/transparent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <Space
+        android:id="@+id/leftSpace"
+        android:layout_width="13dp"
+        android:layout_height="0dp"
+        android:layout_alignParentStart="true"/>
+    <LinearLayout
+        android:background="@drawable/browse_viewpager_left_tab_unselected"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/leftSpace"
+        android:layout_alignParentEnd="true">
+        <TextView
+            android:id="@+id/tabTitle"
+            android:background="@drawable/browse_viewpager_right_tab_selected"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/browse_tab_list"
+            android:textAlignment="center"
+            style="@style/Heading5_White"/>
+    </LinearLayout>
+</RelativeLayout>

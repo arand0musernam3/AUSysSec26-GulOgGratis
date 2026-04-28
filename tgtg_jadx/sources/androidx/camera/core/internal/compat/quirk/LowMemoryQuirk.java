@@ -1,0 +1,13 @@
+package androidx.camera.core.internal.compat.quirk;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import s0.n1;
+
+/* JADX INFO: compiled from: r8-map-id-bad8e3e1b75e2d3fd72c92f1b960553adb24fef824cc9e98cee450b85845d4c2 */
+/* JADX INFO: loaded from: classes.dex */
+public class LowMemoryQuirk implements n1 {
+
+    /* JADX INFO: renamed from: a, reason: collision with root package name */
+    public static final HashSet f2225a = new HashSet(Arrays.asList("SM-A520W", "MOTOG3"));
+}

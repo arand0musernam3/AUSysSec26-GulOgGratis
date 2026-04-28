@@ -1,0 +1,223 @@
+package org.bouncycastle.jcajce.provider.asymmetric.x509;
+
+import java.io.IOException;
+import java.math.BigInteger;
+import java.security.cert.CRLException;
+import java.security.cert.X509CRLEntry;
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.Set;
+import javax.security.auth.x500.X500Principal;
+import org.bouncycastle.asn1.ASN1Encoding;
+import org.bouncycastle.asn1.ASN1Enumerated;
+import org.bouncycastle.asn1.ASN1InputStream;
+import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+import org.bouncycastle.asn1.ASN1OctetString;
+import org.bouncycastle.asn1.ASN1Primitive;
+import org.bouncycastle.asn1.util.ASN1Dump;
+import org.bouncycastle.asn1.x500.X500Name;
+import org.bouncycastle.asn1.x509.CRLReason;
+import org.bouncycastle.asn1.x509.Extension;
+import org.bouncycastle.asn1.x509.Extensions;
+import org.bouncycastle.asn1.x509.GeneralName;
+import org.bouncycastle.asn1.x509.GeneralNames;
+import org.bouncycastle.asn1.x509.TBSCertList;
+import org.bouncycastle.util.Strings;
+
+/* JADX INFO: loaded from: classes3.dex */
+class X509CRLEntryObject extends X509CRLEntry {
+
+    /* JADX INFO: renamed from: c, reason: collision with root package name */
+    private TBSCertList.CRLEntry f33298c;
+    private X500Name certificateIssuer;
+    private volatile int hashValue;
+    private volatile boolean hashValueSet;
+
+    public X509CRLEntryObject(TBSCertList.CRLEntry cRLEntry, boolean z11, X500Name x500Name) {
+        this.f33298c = cRLEntry;
+        this.certificateIssuer = loadCertificateIssuer(z11, x500Name);
+    }
+
+    private Set getExtensionOIDs(boolean z11) {
+        Extensions extensions = this.f33298c.getExtensions();
+        if (extensions == null) {
+            return null;
+        }
+        HashSet hashSet = new HashSet();
+        Enumeration enumerationOids = extensions.oids();
+        while (enumerationOids.hasMoreElements()) {
+            ASN1ObjectIdentifier aSN1ObjectIdentifier = (ASN1ObjectIdentifier) enumerationOids.nextElement();
+            if (z11 == extensions.getExtension(aSN1ObjectIdentifier).isCritical()) {
+                hashSet.add(aSN1ObjectIdentifier.getId());
+            }
+        }
+        return hashSet;
+    }
+
+    private X500Name loadCertificateIssuer(boolean z11, X500Name x500Name) {
+        GeneralName[] names;
+        int i11;
+        if (!z11) {
+            return null;
+        }
+        ASN1OctetString extensionValue = Extensions.getExtensionValue(this.f33298c.getExtensions(), Extension.certificateIssuer);
+        if (extensionValue == null) {
+            return x500Name;
+        }
+        try {
+            names = GeneralNames.getInstance(extensionValue.getOctets()).getNames();
+        } catch (Exception unused) {
+        }
+        for (i11 = 0; i11 < names.length; i11++) {
+            if (names[i11].getTagNo() == 4) {
+                return X500Name.getInstance(names[i11].getName());
+            }
+            return null;
+        }
+        return null;
+    }
+
+    @Override // java.security.cert.X509CRLEntry
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof X509CRLEntryObject)) {
+            return super.equals(this);
+        }
+        X509CRLEntryObject x509CRLEntryObject = (X509CRLEntryObject) obj;
+        if (this.hashValueSet && x509CRLEntryObject.hashValueSet && this.hashValue != x509CRLEntryObject.hashValue) {
+            return false;
+        }
+        return this.f33298c.equals(x509CRLEntryObject.f33298c);
+    }
+
+    @Override // java.security.cert.X509CRLEntry
+    public X500Principal getCertificateIssuer() {
+        if (this.certificateIssuer == null) {
+            return null;
+        }
+        try {
+            return new X500Principal(this.certificateIssuer.getEncoded());
+        } catch (IOException unused) {
+            return null;
+        }
+    }
+
+    @Override // java.security.cert.X509Extension
+    public Set getCriticalExtensionOIDs() {
+        return getExtensionOIDs(true);
+    }
+
+    @Override // java.security.cert.X509CRLEntry
+    public byte[] getEncoded() throws CRLException {
+        try {
+            return this.f33298c.getEncoded(ASN1Encoding.DER);
+        } catch (IOException e5) {
+            throw new CRLException(e5.toString());
+        }
+    }
+
+    @Override // java.security.cert.X509Extension
+    public byte[] getExtensionValue(String str) {
+        return X509SignatureUtil.getExtensionValue(this.f33298c.getExtensions(), str);
+    }
+
+    @Override // java.security.cert.X509Extension
+    public Set getNonCriticalExtensionOIDs() {
+        return getExtensionOIDs(false);
+    }
+
+    @Override // java.security.cert.X509CRLEntry
+    public Date getRevocationDate() {
+        return this.f33298c.getRevocationDate().getDate();
+    }
+
+    @Override // java.security.cert.X509CRLEntry
+    public BigInteger getSerialNumber() {
+        return this.f33298c.getUserCertificate().getValue();
+    }
+
+    @Override // java.security.cert.X509CRLEntry
+    public boolean hasExtensions() {
+        return this.f33298c.getExtensions() != null;
+    }
+
+    @Override // java.security.cert.X509Extension
+    public boolean hasUnsupportedCriticalExtension() {
+        Extensions extensions = this.f33298c.getExtensions();
+        return extensions != null && extensions.hasAnyCriticalExtensions();
+    }
+
+    @Override // java.security.cert.X509CRLEntry
+    public int hashCode() {
+        if (!this.hashValueSet) {
+            this.hashValue = super.hashCode();
+            this.hashValueSet = true;
+        }
+        return this.hashValue;
+    }
+
+    @Override // java.security.cert.X509CRLEntry
+    public String toString() {
+        Object generalNames;
+        StringBuffer stringBuffer = new StringBuffer("      userCertificate: ");
+        String strLineSeparator = Strings.lineSeparator();
+        stringBuffer.append(getSerialNumber());
+        stringBuffer.append(strLineSeparator);
+        stringBuffer.append("       revocationDate: ");
+        stringBuffer.append(getRevocationDate());
+        stringBuffer.append(strLineSeparator);
+        stringBuffer.append("       certificateIssuer: ");
+        stringBuffer.append(getCertificateIssuer());
+        stringBuffer.append(strLineSeparator);
+        Extensions extensions = this.f33298c.getExtensions();
+        if (extensions != null) {
+            Enumeration enumerationOids = extensions.oids();
+            if (enumerationOids.hasMoreElements()) {
+                String str = "   crlEntryExtensions:";
+                loop0: while (true) {
+                    stringBuffer.append(str);
+                    while (true) {
+                        stringBuffer.append(strLineSeparator);
+                        while (enumerationOids.hasMoreElements()) {
+                            ASN1ObjectIdentifier aSN1ObjectIdentifier = (ASN1ObjectIdentifier) enumerationOids.nextElement();
+                            Extension extension = extensions.getExtension(aSN1ObjectIdentifier);
+                            if (extension.getExtnValue() != null) {
+                                ASN1InputStream aSN1InputStream = new ASN1InputStream(extension.getExtnValue().getOctets());
+                                stringBuffer.append("                       critical(");
+                                stringBuffer.append(extension.isCritical());
+                                stringBuffer.append(") ");
+                                try {
+                                    if (aSN1ObjectIdentifier.equals((ASN1Primitive) Extension.reasonCode)) {
+                                        generalNames = CRLReason.getInstance(ASN1Enumerated.getInstance(aSN1InputStream.readObject()));
+                                    } else if (aSN1ObjectIdentifier.equals((ASN1Primitive) Extension.certificateIssuer)) {
+                                        stringBuffer.append("Certificate issuer: ");
+                                        generalNames = GeneralNames.getInstance(aSN1InputStream.readObject());
+                                    } else {
+                                        stringBuffer.append(aSN1ObjectIdentifier.getId());
+                                        stringBuffer.append(" value = ");
+                                        stringBuffer.append(ASN1Dump.dumpAsString(aSN1InputStream.readObject()));
+                                        stringBuffer.append(strLineSeparator);
+                                    }
+                                    stringBuffer.append(generalNames);
+                                    stringBuffer.append(strLineSeparator);
+                                } catch (Exception unused) {
+                                    stringBuffer.append(aSN1ObjectIdentifier.getId());
+                                    str = " value = *****";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return stringBuffer.toString();
+    }
+
+    public X509CRLEntryObject(TBSCertList.CRLEntry cRLEntry) {
+        this.f33298c = cRLEntry;
+        this.certificateIssuer = null;
+    }
+}

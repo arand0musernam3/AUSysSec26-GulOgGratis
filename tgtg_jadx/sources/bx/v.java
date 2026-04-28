@@ -1,0 +1,22 @@
+package bx;
+
+import java.io.ObjectStreamException;
+import java.io.Serializable;
+import java.util.HashMap;
+
+/* JADX INFO: compiled from: r8-map-id-bad8e3e1b75e2d3fd72c92f1b960553adb24fef824cc9e98cee450b85845d4c2 */
+/* JADX INFO: loaded from: classes2.dex */
+public final class v implements Serializable {
+
+    /* JADX INFO: renamed from: a, reason: collision with root package name */
+    public final HashMap f6752a;
+
+    public v(HashMap map) {
+        map.getClass();
+        this.f6752a = map;
+    }
+
+    private final Object readResolve() throws ObjectStreamException {
+        return new w(this.f6752a);
+    }
+}

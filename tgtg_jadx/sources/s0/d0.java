@@ -1,0 +1,17 @@
+package s0;
+
+import com.google.common.util.concurrent.ListenableFuture;
+
+/* JADX INFO: compiled from: r8-map-id-bad8e3e1b75e2d3fd72c92f1b960553adb24fef824cc9e98cee450b85845d4c2 */
+/* JADX INFO: loaded from: classes.dex */
+public final class d0 implements r0.g {
+    @Override // r0.g
+    public final ListenableFuture a() {
+        return x0.i.f43629c;
+    }
+
+    @Override // r0.g
+    public final ListenableFuture b() {
+        return x0.i.f43629c;
+    }
+}
