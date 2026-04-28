@@ -1,32 +1,19 @@
 {
   "projectVersion": 2,
   "files": [
-    "tgtg_untouched/base.apk"
+    "gomore_untouched/base.apk"
   ],
-  "treeExpansionsV2": [
-    "c:com.app.tgtg.services.notifications.NotificationPublisher",
-    "c:com.app.tgtg.MainApplication",
-    "c:a10.a"
-  ],
+  "treeExpansionsV2": [],
   "codeData": {
     "comments": [],
-    "renames": [
-      {
-        "nodeRef": {
-          "refType": "METHOD",
-          "declClass": "com.app.tgtg.services.notifications.NotificationPublisher",
-          "shortId": "a(Landroid/content/Context;Landroid/content/Intent;)V"
-        },
-        "newName": "idk_what_this_is"
-      }
-    ]
+    "renames": []
   },
   "openTabs": [
     {
       "type": "class",
-      "tabPath": "a10.a",
+      "tabPath": "dk.gomore.R",
       "subPath": "java",
-      "caret": 592,
+      "caret": 82,
       "view": {
         "x": 0,
         "y": 0
@@ -39,12 +26,12 @@
     },
     {
       "type": "class",
-      "tabPath": "com.app.tgtg.MainApplication",
+      "tabPath": "dk.gomore.view.MainApplication",
       "subPath": "java",
-      "caret": 1343,
+      "caret": 4419,
       "view": {
         "x": 0,
-        "y": 127
+        "y": 1477
       },
       "active": false,
       "pinned": false,
@@ -54,23 +41,205 @@
     },
     {
       "type": "class",
-      "tabPath": "com.app.tgtg.services.notifications.NotificationPublisher",
+      "tabPath": "dk.gomore.navigation.ActivityIntentLauncher",
       "subPath": "java",
-      "caret": 1222,
+      "caret": 2116,
       "view": {
         "x": 0,
         "y": 0
+      },
+      "active": false,
+      "pinned": false,
+      "bookmarked": false,
+      "hidden": false,
+      "previewTab": false
+    },
+    {
+      "type": "class",
+      "tabPath": "dk.gomore.navigation.ActivityIntentLauncher_Factory",
+      "subPath": "java",
+      "caret": 195,
+      "view": {
+        "x": 0,
+        "y": 0
+      },
+      "active": false,
+      "pinned": false,
+      "bookmarked": false,
+      "hidden": false,
+      "previewTab": false
+    },
+    {
+      "type": "class",
+      "tabPath": "dk.gomore.navigation.ApplicationIntentLauncher_Factory",
+      "subPath": "java",
+      "caret": 198,
+      "view": {
+        "x": 0,
+        "y": 0
+      },
+      "active": false,
+      "pinned": false,
+      "bookmarked": false,
+      "hidden": false,
+      "previewTab": false
+    },
+    {
+      "type": "class",
+      "tabPath": "dk.gomore.navigation.NotificationPage",
+      "subPath": "java",
+      "caret": 7907,
+      "view": {
+        "x": 0,
+        "y": 2467
+      },
+      "active": false,
+      "pinned": false,
+      "bookmarked": false,
+      "hidden": false,
+      "previewTab": false
+    },
+    {
+      "type": "class",
+      "tabPath": "dk.gomore.navigation.RentalContractNavigationManager",
+      "subPath": "java",
+      "caret": 3572,
+      "view": {
+        "x": 0,
+        "y": 37
+      },
+      "active": false,
+      "pinned": false,
+      "bookmarked": false,
+      "hidden": false,
+      "previewTab": false
+    },
+    {
+      "type": "class",
+      "tabPath": "dk.gomore.backend.AccessTokenProvider",
+      "subPath": "java",
+      "caret": 662,
+      "view": {
+        "x": 0,
+        "y": 0
+      },
+      "active": false,
+      "pinned": false,
+      "bookmarked": false,
+      "hidden": false,
+      "previewTab": false
+    },
+    {
+      "type": "class",
+      "tabPath": "dk.gomore.backend.AndroidNetworkTypeProvider",
+      "subPath": "java",
+      "caret": 977,
+      "view": {
+        "x": 0,
+        "y": 0
+      },
+      "active": false,
+      "pinned": false,
+      "bookmarked": false,
+      "hidden": false,
+      "previewTab": false
+    },
+    {
+      "type": "class",
+      "tabPath": "dk.gomore.backend.BackendClient",
+      "subPath": "java",
+      "caret": 21010,
+      "view": {
+        "x": 0,
+        "y": 5275
+      },
+      "active": false,
+      "pinned": false,
+      "bookmarked": false,
+      "hidden": false,
+      "previewTab": false
+    },
+    {
+      "type": "class",
+      "tabPath": "dk.gomore.backend.BackendClientConfiguration",
+      "subPath": "java",
+      "caret": 865,
+      "view": {
+        "x": 0,
+        "y": 0
+      },
+      "active": false,
+      "pinned": false,
+      "bookmarked": false,
+      "hidden": false,
+      "previewTab": false
+    },
+    {
+      "type": "class",
+      "tabPath": "dk.gomore.backend.model.api.ApiScreenEndpointResponse",
+      "subPath": "java",
+      "caret": 1642,
+      "view": {
+        "x": 0,
+        "y": 0
+      },
+      "active": false,
+      "pinned": false,
+      "bookmarked": false,
+      "hidden": false,
+      "previewTab": false
+    },
+    {
+      "type": "class",
+      "tabPath": "dk.gomore.backend.model.api.place.Geometry",
+      "subPath": "java",
+      "caret": 10001,
+      "view": {
+        "x": 0,
+        "y": 2917
       },
       "active": true,
       "pinned": false,
       "bookmarked": false,
       "hidden": false,
       "previewTab": false
+    },
+    {
+      "type": "class",
+      "tabPath": "dk.gomore.backend.model.api.place.Place",
+      "subPath": "java",
+      "caret": 3247,
+      "view": {
+        "x": 0,
+        "y": 216
+      },
+      "active": false,
+      "pinned": false,
+      "bookmarked": false,
+      "hidden": false,
+      "previewTab": false
+    },
+    {
+      "type": "class",
+      "tabPath": "dk.gomore.backend.model.api.place.GeocoderResponse",
+      "subPath": "java",
+      "caret": 1878,
+      "view": {
+        "x": 0,
+        "y": 0
+      },
+      "active": false,
+      "pinned": false,
+      "bookmarked": false,
+      "hidden": false,
+      "previewTab": false
     }
   ],
-  "cacheDir": "/home/user/.cache/jadx/projects/base-2bfe0fb5ed6f863fd58bdb2368f2ef2c",
+  "cacheDir": "/home/user/.cache/jadx/projects/base-6151698385e8372767daa0bacc3a5fd0",
   "enableLiveReload": false,
-  "searchHistory": [],
+  "searchHistory": [
+    "MainApplica"
+  ],
   "searchResourcesFilter": "$TEXT",
   "searchResourcesSizeLimit": 0,
   "pluginOptions": {}
