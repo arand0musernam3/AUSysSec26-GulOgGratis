@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<zendesk.ui.android.conversation.quickreply.QuickReplyView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/zma_quick_reply"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/zuia_horizontal_spacing_medium"
-    android:layout_marginEnd="@dimen/zuia_horizontal_spacing_medium"/>

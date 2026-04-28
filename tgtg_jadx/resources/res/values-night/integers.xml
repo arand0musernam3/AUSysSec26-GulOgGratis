@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <integer name="zuia_ai_disclaimer_icon_alpha">0.65</integer>
-    <integer name="zuia_ai_disclaimer_text_alpha">0.65</integer>
-    <integer name="zuia_conversation_cell_divider_alpha">0.35</integer>
-    <integer name="zuia_text_cell_border_alpha">0.35</integer>
-</resources>

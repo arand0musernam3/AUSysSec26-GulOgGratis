@@ -1,7 +1,0 @@
-package i80;
-
-/* JADX INFO: compiled from: r8-map-id-bad8e3e1b75e2d3fd72c92f1b960553adb24fef824cc9e98cee450b85845d4c2 */
-/* JADX INFO: loaded from: classes3.dex */
-public interface s extends u70.f {
-    Object invoke(Object obj, Object obj2, Object obj3, Object obj4, Object obj5, Object obj6, Object obj7, Object obj8);
-}
